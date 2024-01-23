@@ -1,0 +1,36 @@
+
+
+.baner .swiper {
+  width: 240px;
+  height: 370px;
+  /* height: 300px;  */
+}
+
+.baner .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.baner .swiper-slide:nth-child(1n) {
+
+  background-image: url("https://dkprintworld.com/wp-content/uploads/2022/10/9788124611388-scaled.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.baner .swiper-slide:nth-child(2n) {
+  background-image: url("https://dkprintworld.com/wp-content/uploads/2021/03/9788124602294.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.baner .swiper-slide:nth-child(3n) {
+  background-image: url("https://dkprintworld.com/wp-content/uploads/2022/12/9788124611654.jpg");
+  background-position: center;
+  background-size: cover;
+}

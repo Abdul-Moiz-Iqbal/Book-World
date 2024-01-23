@@ -1,0 +1,25 @@
+.t .swiper {
+    width: 100%;
+    height: max-content;
+  }
+  
+  .t .swiper-slide {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .t .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
