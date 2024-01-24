@@ -47,7 +47,7 @@ const EditBooks = () => {
           category,
           description,
         };
-        fetch(`http://localhost:5000/book/${id}`, {
+        fetch(`${window.location.origin}/book/${id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json",

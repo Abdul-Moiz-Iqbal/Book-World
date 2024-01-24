@@ -12,7 +12,7 @@ const ManageBooks = () => {
   }, []);
 
   const deleteHandler = (id) => {
-    fetch(`http://localhost:5000/book/${id}`, { method: "DELETE" })
+    fetch(`${window.location.origin}/book/${id}`, { method: "DELETE" })
       .then((res) => res.json())
       .then((data) => {
         alert("Book deleted");

@@ -31,7 +31,7 @@ const Shop = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-books")
+    fetch(`${window.location.origin}/all-books`)
       .then((res) => res.json())
       .then((DataBooks) => {
         if (DataBooks == null) {

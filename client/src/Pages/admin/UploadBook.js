@@ -63,7 +63,7 @@ const UploadBook = () => {
     const excelJson = XLSX.utils.sheet_to_json(excelsheet)
     console.log(excelJson); 
     
-    fetch("http://localhost:5000/upload-books", {
+    fetch(`${window.location.origin}/upload-books`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
