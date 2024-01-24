@@ -4,7 +4,7 @@ import BookSlider from "./BookSliderCards/BookSlider";
 const BestSeller = (props) => {
   const [bestSellerBooks, setBestSellerBook] = useState([]);
   useEffect(() => {
-    fetch(`${window.location.origin}/all-books`)
+    fetch(`https://book-world-dusky.vercel.app/all-books`)
       .then((res) => res.json())
       .then((best) => {
         setBestSellerBook(best.slice(0, 6));
