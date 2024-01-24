@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 
 //midleWare
 app.use(cors({
-  origin:["https://book-world-frontend.vercel.app/"],
+  origin:["https://book-world-frontend.vercel.app"],
   methods:["GET","POST"],
   credentials:true, 
 }));
