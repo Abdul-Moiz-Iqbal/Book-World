@@ -12,7 +12,7 @@ const BestSeller = (props) => {
         }
         
         const data = await response.json();
-        setBestSellerBook(data.slice(0, 6));
+        setBestSellerBook((prevBest) => [...prevBest, ...data.slice(0, 6)]);
         console.log(bestSellerBooks);
       } catch (error) {
         console.error('Error fetching data:', error);
