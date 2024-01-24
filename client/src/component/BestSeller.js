@@ -4,17 +4,23 @@ import BookSlider from "./BookSliderCards/BookSlider";
 const BestSeller = (props) => {
   const [bestSellerBooks, setBestSellerBook] = useState([]);
   useEffect(() => {
-    fetch(`https://book-world-dusky.vercel.app/all-books`)
-      .then((res) => res.json())
-      .then((best) => {
-        setBestSellerBook(best.slice(0, 6));
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://book-world-dusky.vercel.app/all-books');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        setBestSellerBook(data.slice(0, 6));
         console.log(bestSellerBooks);
-      })
-      .catch((error) => {
-        // Handle fetch errors here
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, [])
 
   return (
     <div className=" overflow-x-hidden bg-white">
