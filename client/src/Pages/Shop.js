@@ -31,16 +31,27 @@ const Shop = () => {
 
 
   useEffect(() => {
-    fetch(`${window.location.origin}/all-books`)
-      .then((res) => res.json())
-      .then((DataBooks) => {
-        if (DataBooks == null) {
-          return setShowNoBooksMessage(true);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://book-world-dusky.vercel.app/all-books');
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
-        setBooks(DataBooks);
-      });
-    console.log(books);
+  
+        const data = await response.json();
+  
+        if (data == null) {
+          setShowNoBooksMessage(true);
+        } else {
+          setBooks(data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
 
   const getFilteredData = (filter) => {
