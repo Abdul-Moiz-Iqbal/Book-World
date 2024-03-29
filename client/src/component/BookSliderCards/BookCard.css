@@ -1,42 +1,45 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+}
+.mySwiper {
+  width: fit-content;
+  height: 550px;
+  /* background-color: bisque; */
+}
 
-  .swiper {
-    width: 100%;
-    height: 100%;
-    /* background-color: red; */
-  }
-  .mySwiper{
-    width: fit-content; 
-    height: 550px;
-    /* background-color: bisque; */
-  }
-  
-  .swiper-slide {
-    /* margin-top: -1rem; */
-    text-align: center;
-    /* height: 500px; */
-    
-    
-    font-size: 18px;
-    /* background: blue; */
-    /* height: 200px; */
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .truncate-2-lines {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit number of lines */
-    -webkit-box-orient: vertical;
-  }
-  
-  
+.swiper-slide {
+  /* margin-top: -1rem; */
+  text-align: center;
+  /* height: 500px; */
+
+  font-size: 18px;
+  /* background: blue; */
+  /* height: 200px; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.truncate-2-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit number of lines */
+  -webkit-box-orient: vertical;
+}
+.truncate-1-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit number of lines */
+  -webkit-box-orient: vertical;
+}

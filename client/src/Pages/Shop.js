@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 //importing compnents
 import BookCard from "../component/bookCard/BookCard";
-import Filter from "../component/Filter";
 import CategorySlider from "../component/CategorySlider/CategorySlider";
 import FilterMenu from "../component/FilterMenu/FilterMenu";
 
@@ -33,7 +32,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://book-world-dusky.vercel.app/all-books');
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/all-books`);
   
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

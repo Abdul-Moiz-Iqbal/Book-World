@@ -1,27 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @tailwind base;
 
 /* Firefox */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: #D5D5D5 #D5D5D5;
-  }
-  
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #F2F2F2;
-    /* border-radius: 5px; */
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #D5D5D5;
-    /* border-radius: 14px; */
-    /* border: 3px solid #D5D5D5; */
-  }
+  scrollbar-width: thin;
+  scrollbar-color: #d5d5d5 #d5d5d5;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffefef;
+  /* border-radius: 5px; */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8b8b8b;
+  /* border-radius: 14px; */
+  border: 3px solid #D5D5D5;
+}
 @tailwind components;
 @tailwind utilities;
-

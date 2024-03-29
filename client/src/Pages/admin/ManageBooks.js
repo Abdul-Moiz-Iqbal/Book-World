@@ -6,24 +6,24 @@ import { Link } from "react-router-dom";
 const ManageBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-books")
+    fetch("http://localhost:8000/all-books")
       .then((res) => res.json())
       .then((books) => setAllBooks(books));
   }, []);
 
   const deleteHandler = (id) => {
-    fetch(`${window.location.origin}/book/${id}`, { method: "DELETE" })
+    fetch(`http://localhost:8000/book/${id}`, { method: "DELETE" })
       .then((res) => res.json())
       .then((data) => {
         alert("Book deleted");
-        setAllBooks(data)        
+        setAllBooks(data);
       });
   };
+
   return (
     <div className="px-4 my-12 w-[81%]">
       <h1 className="mb-8 text-3xl font-bold">Manage Your Books</h1>
       {/* table for book data */}
-
       <div className=" w-[100%] relative overflow-x-auto shadow-md sm:rounded-lg ">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -79,6 +79,7 @@ const ManageBooks = () => {
           </tbody>
         </table>
       </div>
+      {/* end */}
     </div>
   );
 };

@@ -7,12 +7,16 @@ import {
   FaCross,
   FaMarkdown,
   FaXmark,
+  FaUser,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import SideMenu from "./MobileMenu/SideMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoginOpen } from "../redux/Slices/login/index.js";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [menuToggle, setMenuToggle] = useState(false);
+
   const [navSticky, setNavSticky] = useState(false);
 
   // useEffect(() => {
@@ -31,9 +35,16 @@ const Navbar = () => {
   //   };
   // }, []);
 
+  const dispatch = useDispatch();
+  const login = useSelector((state) => state.login.loginTogle);
 
   const isMenuOpen = () => {
     setMenuToggle(!menuToggle);
+  };
+
+  const isLoginOpen = () => {
+    console.log(login);
+    dispatch(isLoginOpen());
   };
 
   const navItems = [
@@ -46,16 +57,22 @@ const Navbar = () => {
   ];
   return (
     <div className="flex bg-transparent border-b-2 z-10">
-      <div className={`h-20 w-[100%]  flex  justify-center items-center ${navSticky ? " ":""} `}>
-        <div className= {`w-[90%] flex justify-between   `}>
-
+      <div
+        className={`h-20 w-[100%]  flex  justify-center items-center ${
+          navSticky ? " " : ""
+        } `}
+      >
+        <div className={`w-[90%] flex justify-between   `}>
           {/* Menu btn for small device  */}
-        <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center">
             <button onClick={isMenuOpen} className="">
               {menuToggle ? <FaXmark /> : <FaBarsStaggered />}{" "}
             </button>
           </div>
-          <Link to={'/'} className="text-3xl md:text-4xl font-bold text-blue-700 cursor-pointer">
+          <Link
+            to={"/"}
+            className="text-3xl md:text-4xl font-bold text-blue-700 cursor-pointer"
+          >
             Book World
           </Link>
           <ul className="hidden md:flex md:space-x-6 items-center lg:space-x-12   ">
@@ -70,21 +87,23 @@ const Navbar = () => {
             ))}
           </ul>
           <div className=" flex items-center">
-            <button className=" md:text-2xl font-bold hover:text-blue-700">
+            <div className=" flex md:text-2xl font-bold ">
               {/* <FaBarsStaggered />{" "} */}
-              <FaCartShopping/>
-            </button>
+              <Link to={"/login"}>
+                <FaUser  className="hover:text-blue-700" />
+              </Link>
+              <FaCartShopping className="hover:text-blue-700" onClick={()=>{props.CartSideBarToggle()}} />
+            </div>
           </div>
           {/* btn for small device */}
-          
         </div>
         {/* navigation for small devices  */}
-        
       </div>
       {menuToggle ? (
-         <SideMenu filterMenuToggle={isMenuOpen}/>
+        <SideMenu filterMenuToggle={isMenuOpen} />
+      ) : (
         // <div className=" h-[100vh] w-[60%] fixed left-0-0 top-0 bottom-0 z-10 px-4 space-y-4 flex flex-col bg-green-100  ">
-         
+
         //   {navItems.map((item) => (
         //     <Link
         //       key={item.path}
@@ -95,7 +114,6 @@ const Navbar = () => {
         //     </Link>
         //   ))}
         // </div>
-      ) : (
         ""
       )}
     </div>

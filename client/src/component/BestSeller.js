@@ -6,21 +6,26 @@ const BestSeller = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://book-world-dusky.vercel.app/all-books');
+        const response = await fetch(
+          `${process.env.REACT_APP_SERVER_URL}/all-books`
+        );
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        setBestSellerBook((prevBest) => [...prevBest, ...data.slice(0, 6)]);
+        console.log("ss", data);
+        // setBestSellerBook((prevBest) => [...prevBest, ...data]);
+        setBestSellerBook([...data.slice(0, 4)]);
         console.log(bestSellerBooks);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
-  
+
     fetchData();
-  }, [])
+  }, []);
 
   return (
     <div className=" overflow-x-hidden bg-white">
